@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BringAnUmbrella</title>
+  <title>Bring An Umbrella</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">Bring An Umbrella, You Fool</h3>
+          <nav>
+            <ul class="nav masthead-nav">
+              <li class="active"><a href="#">Home</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <%= yield %>
+      <div class="mastfoot">
+        <div class="inner">
+          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          <p>Created by and maintained by <a href="http://www.twitter.com/mathyoumore">@mathyoumore</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

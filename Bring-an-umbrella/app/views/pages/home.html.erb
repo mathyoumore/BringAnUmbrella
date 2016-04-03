@@ -1,0 +1,33 @@
+<div class="inner cover">
+  <h1 class="cover-heading">Bring an Umbrella</h1>
+  <%= text_field_tag "email", nil, placeholder:"Enter your email" %><br>
+  <%= text_field_tag "zip", nil, placeholder:"Enter your Zip-code" %><br>
+  <button class="btn btn-lg btn-primary">Subscribe</button>
+  <p class="lead"></p>
+  <p class="lead">
+    <a onclick="show_about()" class="btn btn-lg btn-default">Wait, what?</a>
+  </p>
+  <span id="About" style="display: none;">
+    <p>
+      <b>Bring an Umbrella</b> was designed because getting rained on sucks, percentages are confusing,
+      and checking weather apps takes like 30 seconds. That's too much for one person in the modern world to deal with.
+      We've got places to do, stuff to go.
+    </p>
+    <p>
+      <b>Bring an Umbrella</b> takes the best part about weather apps (telling you if water is going to fall from the
+      sky) and makes it all about you. Instead of being subject to the tyranny of reading percentages and guessing,
+      we'll just email you if you should bring an umbrella at the beginning of the day. No problem.
+    </p>
+    <p>
+      How does it work? Pessimism and <a href="http://www.weatherunderground.com">WeatherUnderground</a> information.
+      We're weather dorks and pragmatists, so we'll tell you to bring an umbrella if it's more than likely
+      to rain when you'll be outside. We err on the side of umbrellas. Umbrellas are cool.
+    </p>
+    <p>
+      Uhh.
+    </p>
+    <p>
+      That's it.
+    </p>
+  </span>
+</div>
