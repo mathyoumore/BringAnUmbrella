@@ -71,10 +71,13 @@
    font-size: 1.3em;
    width: 80%;
   margin: 5px auto;
-
    a {
      text-decoration: underline;
    }
+ }
+
+ span#bout p.dumb{
+   text-align: center;
  }
 
  /* Extra markup and styles for table-esque vertical and horizontal centering */

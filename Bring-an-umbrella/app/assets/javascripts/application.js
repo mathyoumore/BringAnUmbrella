@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+function show_about() {
+    var span = document.getElementById('About');
+    span.style.display = span.style.display == 'none' ? 'block' : 'none';
+    return false;
+}
