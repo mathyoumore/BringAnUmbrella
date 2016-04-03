@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bring An Umbrella</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Bring An Umbrella</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="site-wrapper">
 
-<div class="site-wrapper">
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <div class="masthead clearfix">
-        <div class="inner">
-          <h3 class="masthead-brand">Bring An Umbrella, You Fool</h3>
-          <nav>
-            <ul class="nav masthead-nav">
-              <li class="active"><a href="#">Home</a></li>
-            </ul>
-          </nav>
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h1 class="masthead-brand">Bring an Umbrella</h1>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#"></a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <%= yield %>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+              <p>Designed and maintained by <a href="http://www.twitter.com/mathyoumore">@mathyoumore</a></p>
+            </div>
+          </div>
+
         </div>
+
       </div>
-      <%= yield %>
-      <div class="mastfoot">
-        <div class="inner">
-          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-          <p>Created by and maintained by <a href="http://www.twitter.com/mathyoumore">@mathyoumore</a></p>
-          <p>We will never sell your email information. Partially because that's shadey.<br>Mostly because we don't know how.</p>
-        </div>
-      </div>
+
     </div>
-  </div>
-</div>
-
-</body>
-</html>
+  </body>

@@ -19,3 +19,11 @@ function show_about() {
     span.style.display = span.style.display == 'none' ? 'block' : 'none';
     return false;
 }
+
+function one_time_check() {
+    var result = document.getElementById('zip').value
+    var span = document.getElementById('Result');
+    span.style.display = span.style.display == 'none' ? 'block' : 'block';
+    span.innerHTML = result? result : "Enter in a zip code, stupid.";
+    return false;
+}
