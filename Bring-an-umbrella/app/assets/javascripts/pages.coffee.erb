@@ -1,0 +1,67 @@
+# # Place all the behaviors and hooks related to the matching controller here.
+# # All this logic will automatically be available in application.js.
+# # You can use CoffeeScript in this file: http://coffeescript.org/
+#
+# show_about = ->
+#   span = document.getElementById('About')
+#   span.style.display = if span.style.display == 'none' then 'block' else 'none'
+#   false
+#
+# parse_precipitation_percentage = (data) ->
+#   perc = null
+#   $.each data['hourly_forecast'], (i, value) ->
+#     # only the hour you need ( 11 AM )
+#     if parseInt(value.FCTTIME.hour) == 17
+#       perc = perc or value.pop
+#     return
+#   perc
+#
+# update_result = (percentage) ->
+#   span = document.getElementById('Result')
+#   span.style.display = 'block'
+#   span.innerHTML = decide(percentage) or 'Enter in a zip code, stupid.'
+#   return
+#
+# decide = (p) ->
+#   if p
+#     if p > 50 then 'Yeah' else 'Nah'
+#   else
+#     p
+#
+# #just js
+#
+# wunder_check = null
+# # jason['hourly_forecast'].each_index do |a|
+# #   p jason['hourly_forecast'][a]['pop'] if (jason['hourly_forecast'][a]['FCTTIME']['hour'] == '17')
+# # end
+# #jquery
+# $ ->
+#
+#   one_time = ->
+#     result = document.getElementById('zip').value
+#     alert("Key is " + '<%= Rails.application.secrets.wunder_key %>' );
+#     if result
+#       $.ajax
+#         url: 'http://api.wunderground.com/api/' + key + '/hourly/q/' + result + '.json'
+#         dataType: 'jsonp'
+#         success: (parsed_json) ->
+#           percent = parse_precipitation_percentage(parsed_json)
+#           #alert("Current temperature in " + result + " is: " + percent);
+#           update_result percent
+#           return
+#         error: (request, textStatus, errorThrown) ->
+#           span = document.getElementById('Result')
+#           alert 'Error!'
+#           span.style.display = 'block'
+#           span.innerHTML = 'You broke it. Thanks for ruining things. Try again later.'
+#           return
+#     else
+#       update_result null
+#     return
+#
+#   wunder_check = one_time
+#   return
+#
+# @one_time_check = ->
+#   wunder_check()
+#   return

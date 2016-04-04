@@ -1,8 +1,8 @@
 <div class="inner cover">
   <!-- <h1 class="cover-heading">Bring an Umbrella</h1> -->
-  <h2 class="Result" id="Result" style="display:none"></h2>
   <%= text_field_tag "zip", nil, placeholder:"Enter your Zip-code" %><br>
   <button class="btn btn-lg btn-primary" onclick="one_time_check()">Should you bring an umbrella today?</button><br>
+  <h2 class="Result" id="Result" style="display:none"></h2>
   <%= text_field_tag "email", nil, placeholder:"Enter your email" %><br>
   <button class="btn btn-lg btn-primary">Subscribe to this zip code</button>
   <p class="lead"></p>
@@ -21,7 +21,7 @@
       we'll just email you if you should bring an umbrella at the beginning of the day. No problem.
     </p>
     <p>
-      How does this work? Pessimism and <a href="http://www.weatherunderground.com">WeatherUnderground</a>.
+      How does this work? Pessimism and <a href="http://www.weatherunderground.com" target="_blank">WeatherUnderground</a>.
       We're weather dorks and pragmatists, so we'll tell you to bring an umbrella if it's more than likely
       to rain when you'll be outside. We err on the side of umbrellas. Umbrellas are cool.
     </p>

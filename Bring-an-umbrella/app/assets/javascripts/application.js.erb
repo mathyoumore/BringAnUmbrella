@@ -1,0 +1,83 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require_tree .
+
+function show_about() {
+    var span = document.getElementById('About');
+    span.style.display = span.style.display == 'none' ? 'block' : 'none';
+    return false;
+}
+
+wunder_check = null;
+
+//jquery
+ $(function() {
+        function one_time(){
+          var result = document.getElementById('zip').value
+          if (result) {
+            $.ajax({
+              url : "pages/api/" + result,
+              dataType : "json",
+              success : function(parsed_json) {
+                percent = parse_precipitation_percentage(parsed_json);
+                update_result(percent);
+              },
+              error : function(request, textStatus, errorThrown) {
+                var span = document.getElementById('Result');
+                alert("Error! - " + errorThrown + " " + textStatus + " " + request);
+                span.style.display = 'block';
+                span.innerHTML =  "You broke it. Thanks for ruining things. Try again later.";
+              }
+              });
+            }
+            else {
+              update_result(null);
+            }
+        }
+        wunder_check = one_time;
+ })
+
+function parse_precipitation_percentage(data) {
+  var perc = null;
+  $.each( data['hourly_forecast'], function( i, value )
+  		{
+  			if( parseInt( value.FCTTIME.hour ) == 17)
+  			{
+          perc = perc || value.pop;
+  			}
+  		});
+      return perc;
+}
+
+ function update_result(percentage) {
+   var span = document.getElementById('Result');
+   span.style.display = 'block';
+   span.innerHTML = decide(percentage) || "Enter in a zip code, stupid.";
+ }
+
+ function decide(p) {
+    if (p) {
+     return p > 50 ? "Yeah" : "Nah"
+    }
+    else {
+      return p;
+    }
+ }
+
+ //just js
+ function one_time_check () {
+       wunder_check();
+}
