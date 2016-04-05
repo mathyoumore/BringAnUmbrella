@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :users
   root 'pages#home'
 
+  get 'subscribe' => 'users#new', as: 'subscribe'
+
   get 'pages/api/:zip' => 'pages#api'
 
   # The priority is based upon order of creation: first created -> highest priority.
