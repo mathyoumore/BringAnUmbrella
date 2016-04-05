@@ -42,6 +42,38 @@
    border: 1px solid #fff;
  }
 
+legend {
+  text-shadow: none;
+  color: white;
+  font-size: 1.1em;
+  margin: 10px auto;
+  width: 40%;
+  border-bottom: solid 1px #aaa;
+}
+
+.table#hours-table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  tr {
+    padding: 0px 50px;
+  }
+  tr > td {
+    .checkbox {
+      margin: 2px 2px;
+    }
+    border-top: none;
+    border-bottom: none;
+    padding:0 50px;
+  }
+  tr > td.left {
+    text-align: justify;
+  }
+  tr > td.right {
+    text-align: justify;
+  }
+}
+
 
  /*
   * Base structure

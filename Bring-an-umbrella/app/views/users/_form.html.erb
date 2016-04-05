@@ -18,33 +18,26 @@
   <div class="field">
     <%= f.text_field :email, placeholder:"Enter your email"%>
   </div>
+  <table class ="table" id="hours-table">
+    <legend>Select the hours for which you would like to receive notifications</legend>
+    <% (0..11).each do |h| %>
+    <tr>
+      <td class="left">
+        <div class="checkbox">
+          <%= check_box_tag h%>
+          <%= convert_to_12_hour h %>
+        </div>
+      </td>
+      <td class="right">
+        <div class="checkbox">
+          <%= check_box_tag h%>
+          <%= convert_to_12_hour h + 12 %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </table>
   <div class="actions">
     <button class="btn btn-lg btn-primary" type="submit">Subscribe to this zip code</button>
   </div>
 <% end %>
-<p class="lead">
-  <a href ='#' onclick="show_about()">Wait, what?</a>
-</p>
-<span id="About" style="display: none;">
-  <p>
-    <b>Bring an Umbrella</b> was designed because getting rained on sucks, percentages are confusing,
-    and checking weather apps takes like 30 seconds. That's too much for one person in the modern world to deal with.
-    We've got places to do, stuff to go.
-  </p>
-  <p>
-    <b>Bring an Umbrella</b> takes the best part about weather apps (telling you if water is going to fall from the
-    sky) and makes it all about you. Instead of being subject to the tyranny of reading percentages and guessing,
-    we'll just email you if you should bring an umbrella at the beginning of the day. No problem.
-  </p>
-  <p>
-    How does this work? Pessimism and <a href="http://www.weatherunderground.com" target="_blank">WeatherUnderground</a>.
-    We're weather dorks and pragmatists, so we'll tell you to bring an umbrella if it's more than likely
-    to rain when you'll be outside. We err on the side of umbrellas. Umbrellas are cool.
-  </p>
-  <p class = "dumb">
-    Uhh.
-  </p>
-  <p class = "dumb">
-    That's it.
-  </p>
-</span>
