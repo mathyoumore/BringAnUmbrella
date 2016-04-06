@@ -24,13 +24,13 @@
     <tr>
       <td class="left">
         <div class="checkbox">
-          <%= check_box_tag h%>
+          <%= check_box_tag "hours[#{h}]"%>
           <%= convert_to_12_hour h %>
         </div>
       </td>
       <td class="right">
         <div class="checkbox">
-          <%= check_box_tag h%>
+          <%= check_box_tag "hours[#{h + 12}]"%>
           <%= convert_to_12_hour h + 12 %>
         </div>
       </td>
