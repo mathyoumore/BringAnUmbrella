@@ -1,6 +1,18 @@
+
 <% if flash[:notice] %>
   <div class="alert alert-info" role="alert"><%= flash[:notice] %></div>
-<% end %>
+<%end%>
+<% if @user.errors %>
+  <div class="alert alert-danger" role="alert">
+    <h4> You did something dumb. </h4>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<%end%>
+
 <div class="inner cover">
 <%= render 'form' %>
 </div>

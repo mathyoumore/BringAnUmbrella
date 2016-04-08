@@ -32,6 +32,13 @@
    text-shadow: none;
  }
 
+ .alert-danger {
+   text-shadow: none;
+   ul > li {
+     list-style: none;
+   }
+ }
+
  /* Custom default button */
  .btn-default,
  .btn-default:hover,

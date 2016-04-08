@@ -25,15 +25,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    params[:hours].each { |k,v| @user.hours.push(k.to_i) }
-    binding.pry
+    params[:hours].each { |k,v| @user.hours.push(k.to_i) } if params[:hours]
     respond_to do |format|
       if @user.save
 
         format.html { redirect_to subscribe_path, notice: "#{@user.email} has been subscribed to #{@user.zip_code} for #{@user.hours}. Check your email for confirmation."  }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render plain: "#{params} ------ #{@user.hours} ---- #{hours}" }
+        format.html { render :new, alert: "You did something dumb: #{@user.errors}" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
