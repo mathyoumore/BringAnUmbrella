@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406185045) do
+ActiveRecord::Schema.define(version: 20160408171720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "forecasts", force: :cascade do |t|
+    t.string  "zip_code"
+    t.integer "day"
+  end
+
+  create_table "hourly_forecasts", force: :cascade do |t|
+    t.integer  "hour"
+    t.integer  "humidity"
+    t.integer  "pop"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "message"
+    t.integer  "forecast_id"
+  end
+
+  add_index "hourly_forecasts", ["forecast_id"], name: "index_hourly_forecasts_on_forecast_id", using: :btree
+
+  create_table "temperatures", force: :cascade do |t|
+    t.integer  "imperial"
+    t.integer  "metric"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "hourly_forecast_id"
+  end
+
+  add_index "temperatures", ["hourly_forecast_id"], name: "index_temperatures_on_hourly_forecast_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string  "email"
@@ -22,4 +49,6 @@ ActiveRecord::Schema.define(version: 20160406185045) do
     t.integer "hours",    default: [], array: true
   end
 
+  add_foreign_key "hourly_forecasts", "forecasts"
+  add_foreign_key "temperatures", "hourly_forecasts"
 end
